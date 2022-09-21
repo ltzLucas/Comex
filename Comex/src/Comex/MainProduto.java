@@ -1,38 +1,30 @@
 package Comex;
 
-import java.text.DecimalFormat;
-
 public class MainProduto {
 	public static void main(String[] args) {
 		
-		Produto produto1 = new Produto();
-		
-		produto1.setId(1);
-		produto1.setNome("Notebook Samsung");
-		produto1.setPrecoUnitario(3523);
-		produto1.setQuantidadeEstoque(1);
-		produto1.setCategoria("Informatica");
-		
+		Produto produto1 = new Produto(1,"Notebook Samsung",3523,1,"Informatica");
 		ProdutoIsento produto2 = new ProdutoIsento(2,"Clean Architecture",102.90,2,"Livors");
-		
-		Produto produto3 = new Produto();
-		produto3.setId(3);
-		produto3.setNome("Monitor Dell 27");
-		produto3.setPrecoUnitario(1889);
-		produto3.setQuantidadeEstoque(3);
-		produto3.setCategoria("Informatica");
+		Produto produto3 = new Produto(3,"Monitor Dell 27",1889,3,"Informatica");
+	
+		System.out.println(produto2.calculaValorTotal());
+		System.out.println("Preco Unitario: "+produto1.getPrecoUnitario()+" Valor Imposto "+produto1.calculaImposto());
+		System.out.println("Preco Unitario: "+produto2.getPrecoUnitario()+" Valor Imposto "+produto2.calculaImposto());
 		
 		
+	
 		System.out.println("----------------------------------------Tabela de Produtos-----------------------------------------");
 		System.out.println("| ID |        NOME        | PrecoUnitario | Qtd Estoque |  Categoria  | Imposto | ValorTotalEstoque");
 		System.out.println("  "+produto1.getId()+"    " +produto1.getNome()+"        "+produto1.getPrecoUnitario()
 				+ "            "+ produto1.getQuantidadeEstoque()+"        "+produto1.getCategoria()+"    "+produto1.calculaImposto()
 				+"         "+produto1.calculaValorTotal());
+		
 		System.out.println("---------------------------------------------------------------------------------------------------");
 		System.out.println("  "+produto2.getId()+"    " +produto2.getNome()+"      "+produto2.getPrecoUnitario()
-		+ "             "+ produto2.getQtdEstoque()+"          "+produto2.getCategoria()+"        "
-		+produto2.imposto()
+		+ "             "+ produto2.getQuantidadeEstoque()+"          "+produto2.getCategoria()+"        "
+		+produto2.calculaImposto()
 		+"           "+produto2.calculaValorTotal());
+		
 		System.out.println("---------------------------------------------------------------------------------------------------");
 		System.out.println("  "+produto3.getId()+"    " +produto3.getNome()+"         "+produto3.getPrecoUnitario()
 		+ "            "+ produto3.getQuantidadeEstoque()+"        "+produto3.getCategoria()+"    "+produto3.calculaImposto()

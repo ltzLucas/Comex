@@ -5,11 +5,20 @@ public class Produto {
 	private String nome;
 	private String descricao;
 	private double precoUnitario;
-	private int quantidadeEstoque;
+	private int qtdEstoque;
 	private String categoria;
 	
+	
+	public Produto(int id,String nome,double precoUnitario,int qtdEstoque,String categoria) {
+		this.id = id;
+		this.nome = nome;
+		this.precoUnitario = precoUnitario;
+		this.qtdEstoque = qtdEstoque;
+		this.categoria = categoria;
+	}
+	
 	public double calculaValorTotal() {
-		return precoUnitario * quantidadeEstoque;
+		return precoUnitario * qtdEstoque;
 	}
 	
 	public double calculaImposto() {
@@ -50,10 +59,10 @@ public class Produto {
 	}
 
 	public int getQuantidadeEstoque() {
-		return this.quantidadeEstoque;
+		return this.qtdEstoque;
 	}
 	public void setQuantidadeEstoque(int quantidadeEstoque) {
-		this.quantidadeEstoque = quantidadeEstoque;
+		this.qtdEstoque = quantidadeEstoque;
 	}
 
 	public String getCategoria() {
