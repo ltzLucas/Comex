@@ -3,9 +3,9 @@ package Comex;
 public class MainProduto {
 	public static void main(String[] args) {
 		
-		Produto produto1 = new Produto(1,"Notebook Samsung",3523,1,"Informatica");
-		ProdutoIsento produto2 = new ProdutoIsento(2,"Clean Architecture",102.90,2,"Livors");
-		Produto produto3 = new Produto(3,"Monitor Dell 27",1889,3,"Informatica");
+		Produto produto1 = new Produto("Notebook Samsung",3523,1,"Informatica");
+		ProdutoIsento produto2 = new ProdutoIsento("Clean Architecture",102.90,2,"Livors");
+		Produto produto3 = new Produto("Monitor Dell 27",1889,3,"Informatica");
 	
 		System.out.println(produto2.calculaValorTotal());
 		System.out.println("Preco Unitario: "+produto1.getPrecoUnitario()+" Valor Imposto "+produto1.calculaImposto());

@@ -4,8 +4,8 @@ package Comex;
 
 public class ProdutoIsento extends Produto {
 	
-	public ProdutoIsento(int id, String nome, double precoUnitario, int qtdEstoque, String categoria) {
-		super(id, nome, precoUnitario, qtdEstoque, categoria);
+	public ProdutoIsento(String nome, double precoUnitario, int qtdEstoque, String categoria) {
+		super(nome, precoUnitario, qtdEstoque, categoria);
 	}
 
 	

@@ -1,15 +1,16 @@
 package Comex;
 
 public class Cliente {
-
+	private static int cont;
 	private int id;
 	private String nome;
 	private String cpf;
 	private String telefone;
 	Endereco endereco;
 	
-	public Cliente(int id, String nome, String cpf, String telefone) {
-		this.id = id;
+	public Cliente(String nome, String cpf, String telefone) {
+		this.cont++;
+		this.id = this.cont;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.telefone = telefone;

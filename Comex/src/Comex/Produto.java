@@ -1,6 +1,7 @@
 package Comex;
 
 public class Produto {
+	private static int cont;
 	private int id;
 	private String nome;
 	private String descricao;
@@ -9,8 +10,9 @@ public class Produto {
 	private String categoria;
 	
 	
-	public Produto(int id,String nome,double precoUnitario,int qtdEstoque,String categoria) {
-		this.id = id;
+	public Produto(String nome,double precoUnitario,int qtdEstoque,String categoria) {
+		this.cont++;
+		this.id = this.cont;
 		this.nome = nome;
 		this.precoUnitario = precoUnitario;
 		this.qtdEstoque = qtdEstoque;

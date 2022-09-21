@@ -1,33 +1,29 @@
 package Comex;
 
 public class Categoria {
+	private static int cont;
 	private int id;
 	private String nome;
 	private String status = "INATIVA";
 	
-	public Categoria(int id,String nome,String status) {
-		this.id = id;
+	public Categoria(String nome,String status) {
 		this.nome = nome;
 		this.status = status;	
+		this.cont++;
+		this.id = this.cont;
 	}
 	
-	public int getId() {
+	
+	
+	public  int getId() {
 		return this.id;
-	}
-	public void setId(int id) {
-		this.id = id;
 	}
 	public String getNome() {
 		return this.nome;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
 	public String getStatus() {
 		return this.status;
 	}
-	public void setStatus(String status) {
-		this.status = status;
-	}
+	
 	
 }
