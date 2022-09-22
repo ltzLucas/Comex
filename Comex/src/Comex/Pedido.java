@@ -8,8 +8,6 @@ public class Pedido {
 	private String data;
 	private boolean cadastrado; 
 	Cliente cliente;
-
-	
 	
 	public Pedido() {
 		LocalDate hoje = LocalDate.now(); //Pega a data local
@@ -20,9 +18,6 @@ public class Pedido {
 		this.data = hojeFormatado;
 	}
 
-	
-	
-	
 	public int getId() {
 		return id;
 	}
@@ -36,7 +31,5 @@ public class Pedido {
 	public void setCadastrado(boolean cadastrado) {
 		this.cadastrado = cadastrado;
 	}
-	
-	
 
 }
