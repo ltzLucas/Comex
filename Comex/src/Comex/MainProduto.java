@@ -6,11 +6,7 @@ public class MainProduto {
 		Produto produto1 = new Produto("Notebook Samsung",3523,1,"Informatica");
 		ProdutoIsento produto2 = new ProdutoIsento("Clean Architecture",102.90,2,"Livors");
 		Produto produto3 = new Produto("Monitor Dell 27",1889,3,"Informatica");
-	
-		System.out.println(produto2.calculaValorTotal());
-		System.out.println("Preco Unitario: "+produto1.getPrecoUnitario()+" Valor Imposto "+produto1.calculaImposto());
-		System.out.println("Preco Unitario: "+produto2.getPrecoUnitario()+" Valor Imposto "+produto2.calculaImposto());
-		
+		ProdutoIsento produto4 = new ProdutoIsento("Galaxy S20 ",2000,4,"Informatica");
 		
 	
 		System.out.println("----------------------------------------Tabela de Produtos-----------------------------------------");
@@ -29,7 +25,10 @@ public class MainProduto {
 		System.out.println("  "+produto3.getId()+"    " +produto3.getNome()+"         "+produto3.getPrecoUnitario()
 		+ "            "+ produto3.getQuantidadeEstoque()+"        "+produto3.getCategoria()+"    "+produto3.calculaImposto()
 		+"          "+produto3.calculaValorTotal());
-		
+		System.out.println("---------------------------------------------------------------------------------------------------");
+		System.out.println("  "+produto4.getId()+"    " +produto4.getNome()+"             "+produto4.getPrecoUnitario()
+		+ "            "+ produto4.getQuantidadeEstoque()+"        "+produto4.getCategoria()+"     "+produto4.calculaImposto()
+		+"           "+produto4.calculaValorTotal());
 		
 	}
 }

@@ -6,6 +6,7 @@ public class Pedido {
 	private static int cont;
 	private int id;
 	private String data;
+	private boolean cadastrado; 
 	Cliente cliente;
 
 	
@@ -25,5 +26,14 @@ public class Pedido {
 	public String getData() {
 		return data;
 	}
+
+	public boolean isCadastrado() {
+		return cadastrado;
+	}
+	public void setCadastrado(boolean cadastrado) {
+		this.cadastrado = cadastrado;
+	}
+	
+	
 
 }
