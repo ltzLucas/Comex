@@ -22,10 +22,10 @@ public class ItemPedido {
 		return this.produto.getPrecoUnitario() * qtdComprada;
 	}
 	public void CalculaDesconto() {
-		if(tipoDesconto == "Promocao") {
+		if(tipoDesconto.equals("Promocao")) {
 			this.desconto = 0.2;
 		} 
-		else if (qtdComprada > 10) {
+		else if (qtdComprada >= 10) {
 			this.desconto = 0.1;
 		}
 	}
@@ -34,12 +34,18 @@ public class ItemPedido {
 		if(this.desconto == 0) {
 			return TotalSemDescontos();
 		}
-		return (this.desconto * TotalSemDescontos());
+
+		return  TotalSemDescontos() - (this.desconto * TotalSemDescontos());
 	}
 
 
 
 	
+	
+	public void setTipoDesconto(String tipoDesconto) {
+		this.tipoDesconto = tipoDesconto;
+	}
+
 	public int getId() {
 		return id;
 	}

@@ -7,12 +7,11 @@ import java.util.Scanner;
 public class Main {
 
 	public static void main(String[] args) throws IOException {
-		
+		Print print = new Print();		
 		Scanner scanner = new Scanner(System.in);
 		Scanner x = new Scanner(System.in);
 	
 		//                                Criando Clientes
-		
 		Cliente c1 = new Cliente("Ana", "123456789" ,"9 9999-9999");
 			c1.endereco = new Endereco("Rua 123","1008","Casa1","Salgadinho","Campo Largo","PR");
 		
@@ -38,11 +37,13 @@ public class Main {
 		ProdutoIsento produto2 = new ProdutoIsento("Clean Architecture",102.90,2,"Livors");
 		Produto produto3 = new Produto("Monitor Dell 27",1889,3,"Informatica");
 		ProdutoIsento produto4 = new ProdutoIsento("Galaxy S20 ",2000,4,"Informatica");
+		Produto produto5 = new Produto("Microfone",300,15,"Informatica");
 		ArrayList<Produto> produtos = new ArrayList<>();
 		produtos.add(produto1);
 		produtos.add(produto2);
 		produtos.add(produto3);
 		produtos.add(produto4);
+		produtos.add(produto5);
 		//                             Criando Pedido
 		ArrayList<Pedido>pedidos = new ArrayList<>();
 		Pedido p1 = new Pedido();
@@ -79,9 +80,6 @@ public class Main {
 		itens.add(i4);
 		itens.add(i5);
 		
-		
-		
-		
 		int aux1 = 0;
 		while (aux1 == 0) {
 			System.out.println("1-Mostrar Clientes");
@@ -95,40 +93,15 @@ public class Main {
 			switch(resposta) {
 			
 			case 1:
-				System.out.println("\n-------------------CLIENTES---------------");
-				for (Cliente cliente : clientes) {
-					System.out.println("ID:"+cliente.getId()+" Nome:"+cliente.getNome()+" CPF:"+cliente.getCpf());
-				}
-				System.out.println("\n\n");
-				System.in.read();
+				print.printClientes(clientes);
 				break;
+				
 			case 2:
-				
-				System.out.println("----------------------------------------Tabela de Produtos-----------------------------------------");
-				System.out.println("| ID |        NOME        | PrecoUnitario | Qtd Estoque |  Categoria  | Imposto | ValorTotalEstoque");
-				System.out.println("  "+produto1.getId()+"    " +produto1.getNome()+"        "+produto1.getPrecoUnitario()
-						+ "            "+ produto1.getQuantidadeEstoque()+"        "+produto1.getCategoria()+"    "+produto1.calculaImposto()
-						+"         "+produto1.calculaValorTotal());
-				
-				System.out.println("---------------------------------------------------------------------------------------------------");
-				System.out.println("  "+produto2.getId()+"    " +produto2.getNome()+"      "+produto2.getPrecoUnitario()
-				+ "             "+ produto2.getQuantidadeEstoque()+"          "+produto2.getCategoria()+"        "
-				+produto2.calculaImposto()
-				+"           "+produto2.calculaValorTotal());
-				
-				System.out.println("---------------------------------------------------------------------------------------------------");
-				System.out.println("  "+produto3.getId()+"    " +produto3.getNome()+"         "+produto3.getPrecoUnitario()
-				+ "            "+ produto3.getQuantidadeEstoque()+"        "+produto3.getCategoria()+"    "+produto3.calculaImposto()
-				+"          "+produto3.calculaValorTotal());
-				System.out.println("---------------------------------------------------------------------------------------------------");
-				System.out.println("  "+produto4.getId()+"    " +produto4.getNome()+"             "+produto4.getPrecoUnitario()
-				+ "            "+ produto4.getQuantidadeEstoque()+"        "+produto4.getCategoria()+"     "+produto4.calculaImposto()
-				+"           "+produto4.calculaValorTotal()+"\n");
-				System.in.read();
-				
+				print.printProdutos(produto1, produto2, produto3, produto4, produto5);
 				break;
-			case 3:
 				
+			case 3:
+				print.printClientes(clientes);
 				System.out.println("Informe o ID do cliente para criar um pedido para ele:");
 				int idCliente = x.nextInt();
 				
@@ -148,11 +121,18 @@ public class Main {
 				break;
 			case 4:
 				int cont = 0;
+				print.printProdutos(produto1, produto2, produto3, produto4, produto5);
+				
 				System.out.println("Informe o ID do cliente para incluir um item no pedido dele:");
 				int idClient = x.nextInt();
 				System.out.println("Informe o ID do produto para adicionar no carrinho");
 				int idProduto = x.nextInt();
-				for(Produto produto : produtos) {
+				for(Produto produto : produtos){
+					
+					if(produto.getId() == idProduto && produto.getQuantidadeEstoque() == 0) {
+						System.out.println("Protudo Fora de Estoque");
+						break;
+					}
 					for(ItemPedido item : itens) {
 						for(Pedido pedido : pedidos) {
 							if(pedido.isCadastrado() == true) {
@@ -163,10 +143,18 @@ public class Main {
 									int qtdComprar = x.nextInt();
 									
 									if(qtdComprar <= produto.getQuantidadeEstoque()) {
+										System.out.println("Voce tem algum cupom de desconto? Se sim escreva ele caso ao contrario apenas aperte enter");
+										String cupom = x.next();
+										if(cupom.equals("Promocao")) {
+											item.setTipoDesconto(cupom);
+										}else {
+											System.out.println("Esse cupom não é valido. Não foi adicionado nenhum tipo de desconto");
+										}
 										item.pedido = pedido;
 										item.setCadastrado(true);
 										item.produto = produto;
 										item.setQtdComprada(qtdComprar);
+										item.produto.AtualizaEstoque(qtdComprar);
 									}else {
 										System.out.println("Não temos essa quantidade disponivel no estoque");
 									}			
@@ -180,22 +168,10 @@ public class Main {
 				
 				break;
 			case 5:
-				for(ItemPedido item : itens) {
-					if(item.isCadastrado() == true) {
-						System.out.println("| IDitem |    NomeProduto    | QtdComprada | Desconto | NomeComprador | ValorTotal");
-						System.out.println("    "+item.getId()+"       "+item.produto.getNome()+ "          "+item.getQtdComprada()+"       "
-								+ item.getDesconto() +"         "+item.pedido.cliente.getNome()+"         "+item.TotalComDescontos());
-					}
-				}
-				
+				print.printItensPedidos(itens);
 				break;
 			case 6:
-				for(Pedido pedido : pedidos) {
-					if(pedido.isCadastrado() == true) {
-						System.out.println("Id:"+pedido.getId()+" Data:"+pedido.getData()+"  Nome do Dono do Pedido: "+pedido.cliente.getNome());
-					}
-				}
-				
+				print.printPedidos(pedidos);
 				break;
 				
 			case 7:
@@ -205,13 +181,6 @@ public class Main {
 				
 			}
 		}
-		
-		
-		
-		
-		
-		
-		
 		
 	}
 }

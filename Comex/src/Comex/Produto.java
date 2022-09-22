@@ -31,6 +31,10 @@ public class Produto {
 		double aux = calculaImposto();
 		return precoUnitario - aux;
 	}
+	
+	public void AtualizaEstoque(int numero) {
+		this.qtdEstoque = this.qtdEstoque - numero;
+	}
 
 	public int getId() {
 		return this.id;
