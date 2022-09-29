@@ -1,0 +1,18 @@
+package br.com.comex.modelo;
+
+
+
+public class ProdutoIsento extends Produto {
+	
+	public ProdutoIsento(String nome, double precoUnitario, int qtdEstoque,Categoria categoria) {
+		super(nome, precoUnitario, qtdEstoque,categoria);
+	}
+
+	
+	public double calculaImposto() {
+		return 0;
+	}
+}
+
+
+

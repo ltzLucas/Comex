@@ -1,4 +1,4 @@
-package Comex;
+package br.com.comex.modelo;
 
 public class Produto {
 	private static int cont;
@@ -7,10 +7,25 @@ public class Produto {
 	private String descricao;
 	private double precoUnitario;
 	private int qtdEstoque;
-	private String categoria;
+	Categoria categoria;
 	
 	
-	public Produto(String nome,double precoUnitario,int qtdEstoque,String categoria) {
+	public Produto(String nome,double precoUnitario,int qtdEstoque, Categoria categoria) {
+		if(nome.length() < 5) {
+			throw new IllegalArgumentException("Nome precisa ser maior que 4 digitos");
+		}
+		if(precoUnitario <= 0) {
+			throw new IllegalArgumentException("Preco nao pode ser negativo");
+		}
+		if(qtdEstoque <= 0) {
+			throw new IllegalArgumentException("QtdEstoque nao pode ser negativo");
+		}
+		if (categoria == null) {
+			throw new IllegalArgumentException("Categoria nao pode ser null");
+		}
+		if(Character.isDigit(nome.charAt(0))) {
+			throw new IllegalArgumentException("Primeiro Digito do nome nao pode ser um numero");
+		}
 		this.cont++;
 		this.id = this.cont;
 		this.nome = nome;
@@ -18,6 +33,11 @@ public class Produto {
 		this.qtdEstoque = qtdEstoque;
 		this.categoria = categoria;
 	}
+	
+	
+	
+	
+	
 	
 	public double calculaValorTotal() {
 		return precoUnitario * qtdEstoque;
@@ -71,12 +91,25 @@ public class Produto {
 		this.qtdEstoque = quantidadeEstoque;
 	}
 
-	public String getCategoria() {
-		return this.categoria;
+	public Categoria getCategoria() {
+		return categoria;
 	}
-	public void setCategoria(String categoria) {
+
+	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
 	}
+
+	@Override
+	public String toString() {
+		return "Produto: " + id + " Nome " + nome + " PrecoUnitario " + precoUnitario
+				+ " qtdEstoque " + qtdEstoque + "\n ";
+	}
+
+	
+	
+	
+	
+	
 	
 	
 	
