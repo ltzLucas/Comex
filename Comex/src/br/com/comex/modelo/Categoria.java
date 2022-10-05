@@ -10,13 +10,13 @@ public class Categoria {
 	
 	public Categoria(int id,String nome,StatusCategoria status) {
 		if(id != cont) {
-			throw new IllegalArgumentException("Argumentos passados invalidos deve-se passar o id correto");
+			throw new ComexException("Argumentos passados invalidos deve-se passar o id correto");
 		}
 		if(nome == null) {
-			throw new IllegalArgumentException("Nome nao pode ser nulo");
+			throw new ComexException("Nome nao pode ser nulo");
 		}
 		if(Character.isDigit(nome.charAt(0))) {
-			throw new IllegalArgumentException("Primeiro Digito do nome não pode ser um numero");
+			throw new ComexException("Primeiro Digito do nome não pode ser um numero");
 		}
 		this.id = id;
 		this.nome = nome;
@@ -27,10 +27,10 @@ public class Categoria {
 	
 	public Categoria(String nome,StatusCategoria status) {
 		if(nome.length() <= 3) {
-			throw new IllegalArgumentException("Argumentos passados invalidos"); 
+			throw new ComexException("Argumentos passados invalidos"); 
 		}
 		if(Character.isDigit(nome.charAt(0))) {
-			throw new IllegalArgumentException("Primeiro Digito do nome nao pode ser um numero");
+			throw new ComexException("Primeiro Digito do nome nao pode ser um numero");
 		}
 		
 		this.nome = nome;

@@ -11,16 +11,16 @@ public class Endereco {
 	public Endereco(String rua, String numero, String complemento, String bairro, String cidade, EstadoDoCliente estado) {
 		
 		if(rua.length() <= 5) {
-			throw new IllegalArgumentException("Rua deve ser maior que 5");
+			throw new ComexException("Rua deve ser maior que 5");
 		}
 		if(numero.length() <= 1) {
-			throw new IllegalArgumentException("Numero deve ser maior que 1 caracter");
+			throw new ComexException("Numero deve ser maior que 1 caracter");
 		}
 		if(bairro.length() <= 1 ) {
-			throw new IllegalArgumentException("Bairro deve ser maior que 1 caracter");
+			throw new ComexException("Bairro deve ser maior que 1 caracter");
 		}
 		if (cidade.length() <= 1) {
-			throw new IllegalArgumentException("Cidade deve ser maior que 1 caracter");
+			throw new ComexException("Cidade deve ser maior que 1 caracter");
 		}
 		
 		this.rua = rua;

@@ -2,6 +2,7 @@ package br.com.comex.main;
 import java.util.ArrayList;
 
 import br.com.comex.modelo.Cliente;
+import br.com.comex.modelo.ComexException;
 import br.com.comex.modelo.Endereco;
 import br.com.comex.modelo.EstadoDoCliente;
 
@@ -21,12 +22,11 @@ public class MainCliente {
 			clientes.add(c3);
 			
 			System.out.println(clientes);
-		}catch (IllegalArgumentException ex) {
+		}catch (ComexException ex) {
 			String msg = ex.getMessage();
 			System.out.println("Exception: "+msg);
 			ex.printStackTrace();
 		}
-		
 	}
 
 }

@@ -7,7 +7,7 @@ public class Produto {
 	private String descricao;
 	private double precoUnitario;
 	private int qtdEstoque;
-	Categoria categoria;
+	private Categoria categoria;
 	
 	
 	public Produto(String nome,double precoUnitario,int qtdEstoque, Categoria categoria) {

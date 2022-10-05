@@ -7,7 +7,7 @@ public class Cliente {
 	public String nome;
 	private String cpf;
 	private String telefone;
-	Endereco endereco;
+	private Endereco endereco;
 	
 	public Cliente(String nome, String cpf, String telefone, Endereco endereco) {
 		if (nome.length() <= 5) {

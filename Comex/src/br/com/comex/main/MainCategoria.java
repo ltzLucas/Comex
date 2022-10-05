@@ -1,6 +1,7 @@
 package br.com.comex.main;
 
 import br.com.comex.modelo.Categoria;
+import br.com.comex.modelo.ComexException;
 import br.com.comex.modelo.StatusCategoria;
 
 public class MainCategoria {
@@ -12,7 +13,7 @@ public class MainCategoria {
 			System.out.println(categoria2);
 			Categoria categoria3 = new Categoria("0Testes",StatusCategoria.ATIVA);
 			System.out.println(categoria3);
-		} catch (IllegalArgumentException ex) {
+		} catch (ComexException ex) {
 			ex.printStackTrace();
 		}
 		

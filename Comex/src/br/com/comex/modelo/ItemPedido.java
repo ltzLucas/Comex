@@ -4,8 +4,8 @@ public class ItemPedido {
 	private static int cont;
 	private int id;
 	private int qtdComprada;
-	Produto produto;
-	Pedido pedido;
+	private Produto produto;
+	private Pedido pedido;
 	private double desconto;
 	private String tipoDesconto = "Nenhum";
 	private boolean cadastrado;
