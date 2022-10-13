@@ -34,11 +34,6 @@ public class Produto {
 		this.categoria = categoria;
 	}
 	
-	
-	
-	
-	
-	
 	public double calculaValorTotal() {
 		return precoUnitario * qtdEstoque;
 	}

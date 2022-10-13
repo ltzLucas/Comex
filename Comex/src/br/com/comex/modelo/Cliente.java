@@ -4,7 +4,7 @@ package br.com.comex.modelo;
 public class Cliente {
 	private static int cont;
 	private int id;
-	public String nome;
+	private String nome;
 	private String cpf;
 	private String telefone;
 	private Endereco endereco;
@@ -50,12 +50,19 @@ public class Cliente {
 	public String getTelefone() {
 		return telefone;
 	}
+	
+	public Endereco getEndereco() {
+		return endereco;
+	}
 
 	@Override
 	public String toString() {
 		return "Id " + this.id + " Nome" + this.nome + " Cpf " + this.cpf + " Telefone " + this.telefone + "\n    Endereco: "
 				+ this.endereco ;
 	}
+
+
+	
 
 	
 

@@ -1,7 +1,7 @@
 package br.com.comex.modelo;
 
 public class Categoria {
-	private static int cont;
+	private static int cont = 20;
 	private int id;
 	private String nome;
 	private StatusCategoria status;
