@@ -25,7 +25,7 @@ public class MainAtualizacaoCategoria {
 				comando.execute();
 				System.out.println("Execuda com sucesso");
 			};
-			
+			 
 			//--------------------------------------------------------------------------
 			
 //			String sql = "UPDATE comex.categoria SET nome = 'LIVROS_TECNICOS' WHERE nome = 'Livros'";

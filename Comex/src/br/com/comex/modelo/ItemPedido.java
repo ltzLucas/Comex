@@ -30,7 +30,7 @@ public class ItemPedido {
 			this.desconto = 0.1;
 		}
 	}
-	
+	 
 	public double TotalComDescontos() {
 		if(this.desconto == 0) {
 			return TotalSemDescontos();

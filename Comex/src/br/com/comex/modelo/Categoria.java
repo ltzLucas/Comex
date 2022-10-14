@@ -22,7 +22,7 @@ public class Categoria {
 		this.nome = nome;
 		this.status = status;
 		cont++;
-		
+		 
 	}
 	
 	public Categoria(String nome,StatusCategoria status) {
@@ -48,10 +48,14 @@ public class Categoria {
 	public StatusCategoria getStatus() {
 		return status;
 	}
+	
+	public void setId(int id) {
+		this.id = id;
+	}
 
 	@Override
 	public String toString() {
-		return "Id "+ this.id + " Nome " + this.nome +" Status "+ this.status;
+		return "Id "+ this.id + " Nome " + this.nome +" Status "+ this.status+ "\n";
 	}
 	
 	

@@ -18,7 +18,7 @@ public class MainListagemCategoria {
 				try(ResultSet registros = comandoPreparado.executeQuery()){
 					while (registros.next()) {
 						System.out.printf("Id: %s ,Nome %s, Status: %s \n",registros.getInt("id"),registros.getString("nome"),
-								registros.getString("status"));
+								registros.getString("status")); 
 					}
 				}
 			}

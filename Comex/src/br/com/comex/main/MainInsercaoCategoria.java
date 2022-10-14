@@ -26,7 +26,7 @@ public class MainInsercaoCategoria {
 		String sql = "INSERT INTO comex.categoria (nome,status)"
 				+"VALUES"
 				+"(?,?)";
-				
+				 
 		try (PreparedStatement comando = conexao.prepareStatement(sql)) {
 			for (Categoria categoria : categorias) {
 				

@@ -18,7 +18,6 @@ public class MainRemocaoCategoria {
 				System.out.println("Quantidade de linhas de categorias Deletadas: " + comando.getUpdateCount() );
 			}
 		}
-		
 	}
-
+ 
 }

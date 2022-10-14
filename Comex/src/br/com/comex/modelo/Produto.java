@@ -25,7 +25,7 @@ public class Produto {
 		}
 		if(Character.isDigit(nome.charAt(0))) {
 			throw new IllegalArgumentException("Primeiro Digito do nome nao pode ser um numero");
-		}
+		} 
 		this.cont++;
 		this.id = this.cont;
 		this.nome = nome;
@@ -33,7 +33,7 @@ public class Produto {
 		this.qtdEstoque = qtdEstoque;
 		this.categoria = categoria;
 	}
-	
+	 
 	public double calculaValorTotal() {
 		return precoUnitario * qtdEstoque;
 	}
@@ -96,9 +96,11 @@ public class Produto {
 
 	@Override
 	public String toString() {
-		return "Produto: " + id + " Nome " + nome + " PrecoUnitario " + precoUnitario
-				+ " qtdEstoque " + qtdEstoque + "\n ";
+		return "Produto [id=" + id + ", nome=" + nome + ", descricao=" + descricao + ", precoUnitario=" + precoUnitario
+				+ ", qtdEstoque=" + qtdEstoque + ", categoria=" + categoria + "]";
 	}
+
+	
 
 	
 	

@@ -16,7 +16,6 @@ public class MainCategoria {
 		} catch (ComexException ex) {
 			ex.printStackTrace();
 		}
-		
 	}
 }
 

@@ -1,4 +1,5 @@
 package br.com.comex.modelo;
+import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
@@ -6,8 +7,7 @@ public class Pedido {
 	private static int cont;
 	private int id;
 	private String data;
-	private boolean cadastrado; 
-	Cliente cliente;
+	private Cliente cliente;
 	
 	public Pedido(Cliente cliente) {
 		LocalDate hoje = LocalDate.now(); //Pega a data local
@@ -18,7 +18,16 @@ public class Pedido {
 		this.data = hojeFormatado;
 		this.cliente = cliente;
 	}
+	
+	public Pedido(String data,Cliente cliente) {
 
+   
+		this.cont++;
+		this.id = this.cont;
+		this.data = data;
+		this.cliente = cliente;
+	}
+  
 	public int getId() {
 		return id;
 	}
@@ -26,17 +35,24 @@ public class Pedido {
 		return data;
 	}
 
-	public boolean isCadastrado() {
-		return cadastrado;
+	public Cliente getCliente() {
+		return cliente;
 	}
-	public void setCadastrado(boolean cadastrado) {
-		this.cadastrado = cadastrado;
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	
+	public void setId(int id) {
+		this.id = id;
 	}
 
 	@Override
 	public String toString() {
 		return "Id " + id + " Data " + data + " Cliente " +" \n     "+ cliente;
 	}
+
+
 
 	
 	
