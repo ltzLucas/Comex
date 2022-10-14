@@ -20,7 +20,6 @@ public class MainTestaClientesDao {
 		 
 //		clienteDao.insere(cliente);
 //		clienteDao.insere(c2);
-		
 		clienteDao.exclui(20);
 		System.out.println(clienteDao.listarTodos());
 		

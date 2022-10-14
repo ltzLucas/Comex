@@ -23,7 +23,6 @@ public class MainTestaPedido {
 		//pedidodao.Insere(pedido);
 		//pedidodao.exclui(16);
 		pedidodao.alteraData("10/10/10", 8);
-		
 		System.out.println(pedidodao.listarTodos());
 	}
 }
