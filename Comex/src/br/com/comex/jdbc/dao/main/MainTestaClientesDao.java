@@ -20,7 +20,8 @@ public class MainTestaClientesDao {
 		 
 //		clienteDao.insere(cliente);
 //		clienteDao.insere(c2);
-		clienteDao.exclui(20);
+		//clienteDao.exclui(20);
+		clienteDao.alteraNome(24, "Gabriela Brasil");
 		System.out.println(clienteDao.listarTodos());
 		
 	} 

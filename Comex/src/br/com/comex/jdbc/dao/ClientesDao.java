@@ -90,4 +90,15 @@ public class ClientesDao {
 			comando.execute();
 		}
 	}
+	
+	public void alteraNome(int id,String nome) throws SQLException {
+
+		String sql = "update comex.cliente set nome = ? where id = ?";
+		try(PreparedStatement comando = conexao.prepareStatement(sql)) {
+			comando.setString(1, nome);
+			comando.setInt(2, id);
+			comando.execute();
+		}
+	}
+	
 }

@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.com.comex.modelo.Categoria;
+import br.com.comex.modelo.Cliente;
+import br.com.comex.modelo.EstadoDoCliente;
 import br.com.comex.modelo.Produto;
 
 public class ProdutoDao {
@@ -34,7 +36,7 @@ public class ProdutoDao {
 			
 			ResultSet rs = comando.getGeneratedKeys();
 			rs.next();
-			produto.setId(rs.getInt(1));
+			produto.setId(rs.getInt("id"));
 		}
 	}
 	
@@ -49,18 +51,34 @@ public class ProdutoDao {
 				while (registros.next()) {
 					Categoria categoria = categoriadao.buscaPorId(registros.getInt("categoria_id"));
 					Produto produto = new Produto(registros.getString("nome"),registros.getInt("preco_unitario"),registros.getInt("quantidade_estoque"),categoria);
-					
+					produto.setId(registros.getInt("id"));
 					produtos.add(produto);
 				} 
 			}
 		}
 		return produtos;
 	}
-
+	
 	public void exclui(int id) throws SQLException {
 		String sql = "delete from comex.produto where id = ?";
 		try(PreparedStatement comando = conexao.prepareStatement(sql)) {
 			comando.setInt(1, id);
+			comando.execute();
+		}
+	}
+	
+	public void altera(int id,String nome,double preco, int qtdEstoque) throws SQLException {
+
+		String sql = "update comex.produto" 
+							+ " SET nome = ?,"
+							+ 	"preco_unitario = ?,"
+							+	"quantidade_estoque = ?"
+							+"where id = ?";
+		try(PreparedStatement comando = conexao.prepareStatement(sql)) {
+			comando.setString(1, nome);
+			comando.setDouble(2, preco);
+			comando.setInt(3, qtdEstoque);
+			comando.setInt(4, id);
 			comando.execute();
 		}
 	}

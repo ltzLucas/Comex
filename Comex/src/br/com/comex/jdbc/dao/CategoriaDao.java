@@ -84,6 +84,17 @@ public class CategoriaDao {
 			comando.execute();
 		}
 	}
+	
+	public void excluiCategoriaInativa() throws SQLException {
+		String sql = "delete from comex.categoria where status ='INATIVA'";
+		try(PreparedStatement comando = conexao.prepareStatement(sql)) {
+			comando.execute();
+		}
+	}
+	
+	
+	
+	
 }
 
 	
