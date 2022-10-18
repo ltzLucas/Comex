@@ -1,5 +1,8 @@
 package br.com.comex.modelo;
 
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement
 public class Categoria {
 	private static int cont = 20;
 	private int id;
@@ -7,6 +10,10 @@ public class Categoria {
 	private StatusCategoria status;
 	
 	
+	
+	Categoria() {
+		super();
+	}
 	
 	public Categoria(int id,String nome,StatusCategoria status) {
 		if(id != cont) {
@@ -42,17 +49,25 @@ public class Categoria {
 	public  int getId() {
 		return this.id;
 	}
-	public String getNome() {
-		return this.nome;
-	}
-	public StatusCategoria getStatus() {
-		return status;
-	}
-	
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	public String getNome() {
+		return this.nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
+	public StatusCategoria getStatus() {
+		return status;
+	}
+	public void setStatus(StatusCategoria status) {
+		this.status = status;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "Id "+ this.id + " Nome " + this.nome +" Status "+ this.status+ "\n";
