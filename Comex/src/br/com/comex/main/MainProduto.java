@@ -14,10 +14,10 @@ public class MainProduto {
 			Categoria categoria2 = new Categoria("Moveis",StatusCategoria.INATIVA);
 			Categoria categoria3 = new Categoria("Livros",StatusCategoria.ATIVA);
 			
-			Produto produto1 = new Produto("Notebook Samsung",3523,2,categoria1);
-			ProdutoIsento produto2 = new ProdutoIsento("Clean Architecture",102.90,2,categoria3);
-			Produto produto3 = new Produto("Monitor Dell 27",1889,3,categoria1);
-			ProdutoIsento produto4 = new ProdutoIsento("Galaxy S20 ",2000,4,categoria1);
+			Produto produto1 = new Produto("Notebook Samsung","not",3523,2,categoria1);
+			ProdutoIsento produto2 = new ProdutoIsento("Clean Architecture","descricao",102.90,2,categoria3);
+			Produto produto3 = new Produto("Monitor Dell 27","curvo",1889,3,categoria1);
+			ProdutoIsento produto4 = new ProdutoIsento("Galaxy S20 ","celular rapido",2000,4,categoria1);
 			
 			System.out.println(produto1);
 			System.out.println(produto2);

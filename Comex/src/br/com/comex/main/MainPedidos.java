@@ -16,7 +16,7 @@ public class MainPedidos {
 		Categoria categoria1 = new Categoria("Informatica",StatusCategoria.ATIVA);
 		Pedido p1 = new Pedido(lucas);
 		
-		Produto produto1 = new Produto("Notebook Samsung",3523,1,categoria1);
+		Produto produto1 = new Produto("Notebook Samsung","Ultra leve",3523,1,categoria1);
 		System.out.println(p1);
 
 		ItemPedido item1 = new ItemPedido(produto1,p1);

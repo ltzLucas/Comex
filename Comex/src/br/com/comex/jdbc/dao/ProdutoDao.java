@@ -23,20 +23,22 @@ public class ProdutoDao {
 	
 	public void insere(Produto produto) throws SQLException {
 		
-		String sql = "INSERT INTO comex.produto (nome,preco_unitario,quantidade_estoque,categoria_id)"
+		String sql = "INSERT INTO comex.produto (nome,descricao,preco_unitario,quantidade_estoque,categoria_id)"
 				+"VALUES"
-				+"(?,?,?,?)";
+				+"(?,?,?,?,?)";
+		
 		String[] colunaParaRetornar = { "id" };
-		try(PreparedStatement comando = conexao.prepareStatement(sql)){
+		try(PreparedStatement comando = conexao.prepareStatement(sql,colunaParaRetornar)){
 			comando.setString(1,produto.getNome());
-			comando.setDouble(2,produto.getPrecoUnitario());
-			comando.setInt(3, produto.getQuantidadeEstoque());
-			comando.setInt(4, produto.getCategoria().getId());
+			comando.setString(2, produto.getDescricao());
+			comando.setDouble(3,produto.getPrecoUnitario());
+			comando.setInt(4, produto.getQuantidadeEstoque());
+			comando.setInt(5, produto.getCategoria().getId());
 			comando.execute();
 			
 			ResultSet rs = comando.getGeneratedKeys();
 			rs.next();
-			produto.setId(rs.getInt("id"));
+			produto.setId(rs.getInt(1));
 		}
 	}
 	
@@ -50,7 +52,7 @@ public class ProdutoDao {
 				CategoriaDao categoriadao = new CategoriaDao(conexao);
 				while (registros.next()) {
 					Categoria categoria = categoriadao.buscaPorId(registros.getInt("categoria_id"));
-					Produto produto = new Produto(registros.getString("nome"),registros.getInt("preco_unitario"),registros.getInt("quantidade_estoque"),categoria);
+					Produto produto = new Produto(registros.getString("nome"),registros.getString("descricao"),registros.getInt("preco_unitario"),registros.getInt("quantidade_estoque"),categoria);
 					produto.setId(registros.getInt("id"));
 					produtos.add(produto);
 				} 
@@ -67,18 +69,20 @@ public class ProdutoDao {
 		}
 	}
 	
-	public void altera(int id,String nome,double preco, int qtdEstoque) throws SQLException {
+	public void altera(int id,String nome,String descricao,double preco, int qtdEstoque) throws SQLException {
 
 		String sql = "update comex.produto" 
 							+ " SET nome = ?,"
+							+"descricao = ?,"
 							+ 	"preco_unitario = ?,"
 							+	"quantidade_estoque = ?"
 							+"where id = ?";
 		try(PreparedStatement comando = conexao.prepareStatement(sql)) {
 			comando.setString(1, nome);
-			comando.setDouble(2, preco);
-			comando.setInt(3, qtdEstoque);
-			comando.setInt(4, id);
+			comando.setString(2, descricao);
+			comando.setDouble(3, preco);
+			comando.setInt(4, qtdEstoque);
+			comando.setInt(5, id);
 			comando.execute();
 		}
 	}
