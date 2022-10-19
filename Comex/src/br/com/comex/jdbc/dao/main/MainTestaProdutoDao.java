@@ -22,7 +22,7 @@ public class MainTestaProdutoDao {
 		
 		//produtodao.insere(produto);
 		//produtodao.exclui(14);
-		produtodao.altera(33, "Impressora 3D","filip", 1500, 3);
+		//produtodao.altera(33, "Impressora 3D","filip", 1500, 3);
 		System.out.println(produtodao.listaTudo());
 	}
 }

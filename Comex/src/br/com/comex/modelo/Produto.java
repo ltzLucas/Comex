@@ -26,8 +26,6 @@ public class Produto {
 		if(Character.isDigit(nome.charAt(0))) {
 			throw new IllegalArgumentException("Primeiro Digito do nome nao pode ser um numero");
 		} 
-		this.cont++;
-		this.id = this.cont;
 		this.nome = nome;
 		this.precoUnitario = precoUnitario;
 		this.qtdEstoque = qtdEstoque;
