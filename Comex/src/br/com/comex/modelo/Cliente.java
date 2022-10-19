@@ -47,8 +47,6 @@ public class Cliente {
 			throw new ComexException("Cidade deve ser maior que 1 caracter");
 		}
 		
-		cont++;
-		this.id = cont;
 		this.nome = nome;
 		this.cpf = cpf;
 		this.telefone = telefone;

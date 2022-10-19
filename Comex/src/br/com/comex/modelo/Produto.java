@@ -10,7 +10,7 @@ public class Produto {
 	private Categoria categoria;
 	
 	
-	public Produto(String nome,double precoUnitario,int qtdEstoque, Categoria categoria) {
+	public Produto(String nome,String descricao,double precoUnitario,int qtdEstoque, Categoria categoria) {
 		if(nome.length() < 5) {
 			throw new IllegalArgumentException("Nome precisa ser maior que 4 digitos");
 		}
@@ -32,7 +32,9 @@ public class Produto {
 		this.precoUnitario = precoUnitario;
 		this.qtdEstoque = qtdEstoque;
 		this.categoria = categoria;
+		this.descricao = descricao;
 	}
+	
 	 
 	public double calculaValorTotal() {
 		return precoUnitario * qtdEstoque;

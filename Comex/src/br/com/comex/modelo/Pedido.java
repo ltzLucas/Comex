@@ -20,10 +20,7 @@ public class Pedido {
 	}
 	
 	public Pedido(String data,Cliente cliente) {
-
    
-		this.cont++;
-		this.id = this.cont;
 		this.data = data;
 		this.cliente = cliente;
 	}

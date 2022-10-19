@@ -35,8 +35,6 @@ public class Categoria {
 		
 		this.nome = nome;
 		this.status = status;	
-		cont++;
-		this.id = this.cont;
 	}
 
 	public  int getId() {
