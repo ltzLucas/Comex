@@ -39,6 +39,26 @@ public class CategoriaDao {
 			}
 	} 
 	
+	public void inserePeloNome(String nome) throws SQLException  {
+		
+		String sql = "Insert into comex.categoria (nome,status)"
+					+"values"
+					+"(?,?)";
+		
+		String[] colunaParaRetornar = { "id" };
+		Categoria categoria = new Categoria(nome,StatusCategoria.ATIVA);
+		try(PreparedStatement comando = conexao.prepareStatement(sql,colunaParaRetornar)) {
+			comando.setString(1, categoria.getNome());
+			comando.setString(2,categoria.getStatus().name());
+			comando.execute();
+			
+			ResultSet rs = comando.getGeneratedKeys();
+			rs.next();
+			
+			categoria.setId(rs.getInt(1));
+		}
+	}
+
 	public List<Categoria> listarTodas() throws SQLException {
 		String sql = "select * from comex.categoria";
 		try(PreparedStatement comandoPreparado = conexao.prepareStatement(sql)){

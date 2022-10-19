@@ -13,15 +13,14 @@ public class MainTestaClientesDao {
 
 	public static void main(String[] args) throws SQLException {
 
-		Cliente cliente = new Cliente("Ana Beatriz", "123.456.789-10" ,"41 9 9999-9999","Rua 123","1008","Casa1","Salgadinho","Campo Largo",EstadoDoCliente.PR);
-		Cliente c2 = new Cliente("Elizandro ","111.222.333-44","40 9 1111-1111","Rua 321","999","apto ","Batel","Curitiba",EstadoDoCliente.SC);
+		Cliente c2 = new Cliente("Testes ","111.222.333-44","40 9 1111-1111","Rua 321","999","apto ","Batel","Curitiba",EstadoDoCliente.SC);
 		Connection conexao = new ConnectionFactory().getConnection();
 		ClientesDao clienteDao = new ClientesDao(conexao);
 		 
-//		clienteDao.insere(cliente);
+		//clienteDao.insere(c2);
 //		clienteDao.insere(c2);
 		//clienteDao.exclui(20);
-		clienteDao.alteraNome(24, "Gabriela Brasil");
+		//clienteDao.alteraNome(24, "Gabriela Brasil");
 		System.out.println(clienteDao.listarTodos());
 		
 	} 

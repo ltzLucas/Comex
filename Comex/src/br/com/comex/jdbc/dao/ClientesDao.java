@@ -43,6 +43,8 @@ public class ClientesDao {
 				cliente.setId(rs.getInt(1));
 		}
 	}
+	
+	
 	  
 	public List<Cliente> listarTodos() throws SQLException {
 		String sql = "select * from comex.cliente";
@@ -57,7 +59,6 @@ public class ClientesDao {
 							,registros.getString("cidade"),EstadoDoCliente.valueOf(registros.getString("uf")));
 					cliente.setId(registros.getInt("id"));
 					clientes.add(cliente);
-					
 				}
 			} 
 			return clientes;
@@ -100,5 +101,8 @@ public class ClientesDao {
 			comando.execute();
 		}
 	}
+	
+	
+	
 	
 }

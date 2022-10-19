@@ -14,8 +14,9 @@ public class Cliente {
 	private String cidade;
 	private EstadoDoCliente estado;
 	
-	
-	 
+	public Cliente() {
+		super();
+	}
 	
 	public Cliente(String nome, String cpf, String telefone, String rua, String numero, String complemento, String bairro, String cidade, EstadoDoCliente estado) {
 		if (nome.length() <= 5) {
@@ -101,6 +102,42 @@ public class Cliente {
 	}
 	public EstadoDoCliente getEstado() {
 		return estado;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+
+	public void setRua(String rua) {
+		this.rua = rua;
+	}
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+	public void setComplemento(String complemento) {
+		this.complemento = complemento;
+	}
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+	public void setEstado(EstadoDoCliente estado) {
+		this.estado = estado;
 	}
 
 	@Override
