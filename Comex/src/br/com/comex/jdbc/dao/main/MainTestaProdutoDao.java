@@ -8,7 +8,6 @@ import br.com.comex.jdbc.dao.CategoriaDao;
 import br.com.comex.jdbc.dao.ProdutoDao;
 import br.com.comex.modelo.Categoria;
 import br.com.comex.modelo.Produto;
-import br.com.comex.modelo.StatusCategoria;
 
 public class MainTestaProdutoDao {
 
