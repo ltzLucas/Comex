@@ -60,35 +60,6 @@ public class ComexWS {
 	
 	public void adicionarCliente(Cliente cliente) throws SQLException {
 		
-		if (cliente.getNome().length() <= 5) {
-			throw new IllegalArgumentException("Nome deve ser maior que 5");
-		}
-		boolean valido = cliente.getCpf().matches("\\d\\d\\d.\\d\\d\\d.\\d\\d\\d-\\d\\d");
-		if (valido == false) {
-			throw new IllegalArgumentException("Preencha o cpf nesse formato: 000.000.000-00");
-		} 
-		if (cliente.getTelefone() != null) {
-			boolean Tvalido = cliente.getTelefone().matches("\\d\\d \\d \\d\\d\\d\\d-\\d\\d\\d\\d");
-			if (Tvalido == false) {
-				throw new IllegalArgumentException("Preencha o telefone nesse formato: 00 0 0000-0000");
-			}
-		}
-		if(Character.isDigit(cliente.getNome().charAt(0))) {
-			throw new IllegalArgumentException("Primeiro Digito do nome nao pode ser um numero");
-		}
-		if(cliente.getRua().length() <= 5) {
-			throw new ComexException("Rua deve ser maior que 5");
-		}
-		if(cliente.getNumero().length() <= 1) {
-			throw new ComexException("Numero deve ser maior que 1 caracter");
-		}
-		if(cliente.getBairro().length() <= 1 ) {
-			throw new ComexException("Bairro deve ser maior que 1 caracter");
-		}
-		if (cliente.getCidade().length() <= 1) {
-			throw new ComexException("Cidade deve ser maior que 1 caracter");
-		}
-		
 		System.out.println("Adicionando Cliente !");
 		this.daoCliente.insere(cliente);
 		System.out.println("Inseriu");
