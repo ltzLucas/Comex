@@ -17,6 +17,9 @@ public class MainComexWS {
 		
 		System.out.println("Service rodando: "+ url + "?wsdl");
 		Endpoint.publish(url, service);
+		
+		
+		
 		Cliente cliente = new Cliente("Lucas lima","109.129.039-37","41 9 9111-0168","Rua123","1008","Casa Rosa","Salgadinho","Campo Largo",EstadoDoCliente.PR);
 		service.adicionarCliente(cliente);
 		
