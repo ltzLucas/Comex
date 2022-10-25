@@ -17,7 +17,7 @@ public class MainTestaClientesDao {
 		Connection conexao = new ConnectionFactory().getConnection();
 		ClientesDao clienteDao = new ClientesDao(conexao);
 		 
-		//clienteDao.insere(c2);
+		clienteDao.insere(c2);
 //		clienteDao.insere(c2);
 		//clienteDao.exclui(20);
 		//clienteDao.alteraNome(24, "Gabriela Brasil");
