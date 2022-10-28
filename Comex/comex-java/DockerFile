@@ -1,0 +1,4 @@
+FROM openjdk:8u342-jdk
+EXPOSE 8080
+COPY Comex.jar:.
+ENTRYPOINT java -jar Comex.jar
